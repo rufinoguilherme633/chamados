@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+a{
+
+    text-decoration: none; /* remove sublinhado */
+    color: inherit;        /* herda a cor do elemento pai */
+    cursor: pointer;       /* opcional, mantém aparência de link */
+}

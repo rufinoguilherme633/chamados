@@ -1,0 +1,76 @@
+
+/* ===== Formulário ===== */
+
+.container-login{
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-form {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transition: transform 0.2s;
+}
+
+
+
+.login-form-title {
+    text-align: center;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* ===== Grupos de campos ===== */
+.login-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.login-form-label {
+    font-size: 14px;
+    color: #555;
+}
+
+.login-form-input {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 14px;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+.login-form-input:focus {
+    border-color: #3398D9;
+    box-shadow: 0 0 8px rgba(51,152,217,0.4);
+    outline: none;
+}
+
+/* ===== Botão ===== */
+.login-form-button {
+    padding: 12px;
+    background-color: #3398D9;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.login-form-button:hover {
+    background-color: #1A73E8;
+    transform: translateY(-2px);
+}

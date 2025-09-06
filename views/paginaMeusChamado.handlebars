@@ -1,0 +1,74 @@
+<div class="container-meus-chamado">
+  <h1>Meus chamados</h1>
+
+  <div class="lista-chamados">
+    {{#each chamados}}
+    <div class="chamado-card">
+      <form id="{{id}}" action="/acaoChamado/{{id}}" method="POST" class="container-form">
+        <input type="hidden" name="id" value="{{id}}">
+
+        <div class="chamado-foto">
+          {{#if foto}}
+            <img src="{{foto}}" alt="Foto do chamado">
+          {{else}}
+            <img src="/img/placeholder.png" alt="Sem foto">
+          {{/if}}
+        </div>
+
+        <div class="chamado-info">
+          <input type="text" name="titulo" value="{{titulo}}" placeholder="Editar título">
+          <textarea name="descricao_problema">{{descricao_problema}}</textarea>
+        </div>
+
+        <div class="container-form-button">
+          <button type="button" class="button editar-button"
+            onclick="abrirModalEditar({{id}}, '{{titulo}}', '{{descricao_problema}}')">Editar</button>
+          <button type="button" class="button cancelar-button"
+            onclick="abrirModalDeletar({{id}})">Deletar</button>
+        </div>
+      </form>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<!-- Modal de Edição -->
+<div id="modal-editar" class="modal" style="display:none;">
+  <div class="modal-content">
+    <h1>Editar Chamado</h1>
+    <form id="form-editar" method="POST" class="form-editar">
+      <input type="hidden" name="id" id="editar-id">
+      <input type="hidden" name="acao" value="editar">
+
+      <label for="titulo">Título</label>
+      <input type="text" id="editar-titulo" name="titulo" required>
+
+      <label for="descricao_problema">Descrição do Problema</label>
+      <textarea id="editar-descricao" name="descricao_problema" rows="4" required></textarea>
+
+      <div class="container-buttons">
+        <button type="submit" class="button confirmar-button">Confirmar</button>
+        <button type="button" class="button fechar-button" onclick="fecharModalEditar()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div id="modal-cancelar" class="modal" style="display:none;">
+  <div class="modal-content">
+    <p>Deseja realmente deletar este chamado?</p>
+    <form id="form-cancelar" method="POST">
+        <input type="hidden" name="id" id="cancelar-id">
+        <input type="hidden" name="acao" value="cancelar">
+        <div class="container-buttons">
+            <button type="submit" class="button confirmar-button">Confirmar</button>
+            <button type="button" class="button fechar-button" onclick="fecharModalCancelar()">Cancelar</button>
+        </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div class="home-wrapper">
+    <header class="home-header">
+        <div class="home-logo">
+            <img src="../img/logo.png" alt="" class="home-logo-img">
+            <span class="home-logo-text">Suzy</span>
+        </div>
+
+        <button class="home-user">
+            {{#if user.foto}}
+                <img class="home-user-photo" src="{{user.foto}}" alt="">
+            {{else}}
+                <img class="home-user-photo" src="https://i.pinimg.com/236x/fb/27/41/fb27417d8671d75fba40a9ddf910d4d7.jpg" alt="">
+            {{/if}}
+            <span class="home-user-name">{{user.nome}}</span>
+        </button>
+
+        <ul class="home-menu">
+            {{#each status_solicitacao}}
+                <li class="home-menu-item">
+                    <a href="/paginaMeusChamados/{{id}}" id="{{id}}" class="home-text-status-chamado">
+                         {{status}}
+                     </a>
+                </li>
+            {{/each}}
+        </ul>
+
+        <button class="home-logout" onclick="abrirModalLogaut()">
+            <i class="fa-solid fa-right-from-bracket home-logout-icon"></i>
+            <span class="home-logout-text">Logout</span>
+        </button>
+
+   <ul class="home-menu">
+            
+                <li class="home-menu-item">
+                    <a href="/paginaMeusChamados/aberto" id="aberta" class="home-text-status-chamado"></a>
+                </li>
+            
+        </ul>
+        
+    </header>
+
+    <div class="home-container">
+        <h1 class="home-container-title">Grupos</h1>
+
+        <div class="home-groups-list">
+            {{#each setores}}
+                <div class="home-container-setor" id="home-container-setor" >
+                    <a class="home-group-item" href="/paginachamado">
+                                      <img src="{{imagem}}" alt="" class="home-imagem-setor">
+
+                      {{nome}}
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+
+
+        
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div id="modal-logaut" class="modal" style="display:none;">
+   
+    <form id="form-editar" method="POST"  class="form-editar">
+      <span>Deseja sair da sua conta ? </span>
+     
+     <div class="container-buttons">
+
+         <button type="button" class="button confirmar-button">Confirmar</button>
+         <button type="button" class="button fechar-button" id="fechar-modal" onclick="fecharModalLogaut()">Cancelar</button>
+     </div>
+    </form>
+
+</div>
+
